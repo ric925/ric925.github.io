@@ -9,4 +9,7 @@ function FindProxyForURL(url, host) {
 if (shExpMatch(host, "bing.com") ||
       shExpMatch(host, "example2.com")) {
     return "PROXY proxy.example.com:8080";
+      }
+
+
 }
