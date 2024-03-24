@@ -13,6 +13,6 @@ function FindProxyForURL(url, host) {
     }
   }
 
-else return "DIRECT";
+return "DIRECT";
 
 }
