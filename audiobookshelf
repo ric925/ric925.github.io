@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    restart: unless-stopped
+    ports:
+      - 13378:80
+    volumes:
+      - /media/ricky/other/media/Audiobook:/audiobooks
+      - /media/ricky/other:/HostBackup
+      - Audiobookshelf_Config:/config
+      - Audiobookshelf_Metadata:/metadata
+    environment:
+      - TZ=Europe/London
+      - DISABLE_SSRF_REQUEST_FILTER=1
+
+    networks:
+      - nginx
+    
+
+networks:
+  nginx:
+    name: nginx_default
+    external: true
+
+volumes:
+  Audiobookshelf_Config:
+  Audiobookshelf_Metadata:
